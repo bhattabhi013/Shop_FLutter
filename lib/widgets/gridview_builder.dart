@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shop_app/models/product.dart';
 import 'package:provider/provider.dart';
 import '../providers/products_provider.dart';
 import 'product_item.dart';
@@ -18,12 +17,14 @@ class GridViewBuilder extends StatelessWidget {
             mainAxisSpacing: 10),
         itemCount: productList.length,
         itemBuilder: (ctx, i) {
-          return ProductItem(
-            id: productList[i].id,
-            imageUrl: productList[i].imageUrl,
-            title: productList[i].title,
-            price: productList[i].price,
-          );
+          return ChangeNotifierProvider(
+              create: (context) => productList[i],
+              child: ProductItem(
+                  // id: productList[i].id,
+                  // imageUrl: productList[i].imageUrl,
+                  // title: productList[i].title,
+                  // price: productList[i].price,
+                  ));
         });
   }
 }
