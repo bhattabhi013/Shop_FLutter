@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shop_app/providers/cart.dart';
+import 'package:shop_app/providers/orders.dart';
+import 'package:shop_app/screens/cart_screen.dart';
+import 'package:shop_app/screens/orders_screen.dart';
 
-import 'package:shop_app/screens/product_detail_screen.dart';
-import 'package:shop_app/screens/product_overview_screen.dart';
+import '../screens/product_detail_screen.dart';
+import '../screens/product_overview_screen.dart';
 import 'providers/products_provider.dart';
 
 void main() {
@@ -12,9 +16,14 @@ void main() {
 class ShopApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => Products(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => Products()),
+        ChangeNotifierProvider(create: (context) => Cart()),
+        ChangeNotifierProvider(create: (context) => Order()),
+      ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: "Shopping spree",
         theme: ThemeData(
           primarySwatch: Colors.purple,
@@ -23,6 +32,8 @@ class ShopApp extends StatelessWidget {
         home: ProductOVerviewScreen(),
         routes: {
           ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+          CartScreen.routeName: (ctx) => const CartScreen(),
+          OrderScreen.routeName: (ctx) => const OrderScreen(),
         },
       ),
     );
