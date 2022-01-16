@@ -25,19 +25,19 @@ class CartItemTile extends StatelessWidget {
         return showDialog(
             context: context,
             builder: (ctx) => AlertDialog(
-                  title: Text('Are you sure?'),
-                  content: Text("Do you want to remove item?"),
+                  title: const Text('Are you sure?'),
+                  content: const Text("Do you want to remove item?"),
                   actions: [
                     FlatButton(
                         onPressed: () {
                           Navigator.of(context).pop(false);
                         },
-                        child: Text('No')),
+                        child: const Text('No')),
                     FlatButton(
                         onPressed: () {
                           Navigator.of(context).pop(true);
                         },
-                        child: Text('Yes')),
+                        child: const Text('Yes')),
                   ],
                 ));
       },

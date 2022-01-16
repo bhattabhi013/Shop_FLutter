@@ -19,12 +19,12 @@ class UserProductItem extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.edit),
+              icon: const Icon(Icons.edit),
               color: Theme.of(context).primaryColor,
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.delete),
+              icon: const Icon(Icons.delete),
               color: Theme.of(context).errorColor,
             ),
           ],
