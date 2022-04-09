@@ -34,7 +34,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
     _formKey.currentState!.save();
     Provider.of<Products>(context, listen: false).addProduct(product);
     Navigator.of(context).pop();
-    print(product);
+    // print(product);
   }
 
   @override
@@ -45,7 +45,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
         actions: [
           IconButton(
             onPressed: () => _saveForm(),
-            icon: Icon(Icons.save),
+            icon: const Icon(Icons.save),
           ),
         ],
       ),
@@ -146,7 +146,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
                       ),
                     ),
                     child: imgCtrl.text.isEmpty
-                        ? const Text('Enter URL')
+                        ? const Center(child: Text('Image'))
                         : FittedBox(
                             child: Image.network(
                               imgCtrl.text,

@@ -58,12 +58,10 @@ class CartItemTile extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: ListTile(
             leading: FittedBox(
-              fit: BoxFit.fill,
-              child: Padding(
-                padding: const EdgeInsets.all(2),
-                child: CircleAvatar(
-                  child: Text('Rs. $price'),
-                ),
+              fit: BoxFit.contain,
+              child: CircleAvatar(
+                minRadius: 40,
+                child: Text('Rs. $price'),
               ),
             ),
             title: Text(prodtitle),
