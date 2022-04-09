@@ -14,27 +14,29 @@ class UserProductScreen extends StatelessWidget {
     final productsData = Provider.of<Products>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("User Products"),
+        title: const Text("User Products"),
         actions: [
           IconButton(
               onPressed: () {
                 Navigator.of(context).pushNamed(EditProductScreen.routeName);
               },
-              icon: Icon(Icons.add)),
+              icon: const Icon(Icons.add)),
         ],
       ),
-      drawer: AppDrawer(),
+      drawer: const AppDrawer(),
       body: Container(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
         child: ListView.builder(
             itemCount: productsData.productList.length,
             itemBuilder: (ctx, i) {
               return Column(
                 children: [
                   UserProductItem(
-                      title: productsData.productList[i].title,
-                      imageUrl: productsData.productList[i].imageUrl),
-                  Divider(),
+                    title: productsData.productList[i].title,
+                    imageUrl: productsData.productList[i].imageUrl,
+                    id: productsData.productList[i].id,
+                  ),
+                  const Divider(),
                 ],
               );
             }),
